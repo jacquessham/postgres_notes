@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  demo-postgres:
+    image: postgres:14.2
+    container_name: demo-postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
+    ports:
+      - '5432:5432'
+    volumes: 
+      - ./postgres-data:/var/lib/postgresql/demo_data
+
+
+volumes:
+  demo-postgres:
